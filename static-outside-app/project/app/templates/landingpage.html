@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock css %}
+
+{% block title %}
+<title> landing  page</title>
+
+{% endblock title  %}
+
+{% block content %}
+<img src="{% static 'images/img.webp'%}" alt="">
+
+<audio controls>
+    <source src="{% static 'audio/sh.mp3'%}" type="audio/mp3">
+</audio>
+
+<video width="640" height="360" controls>
+    <source src="{% static 'video/is.mp4' %}" type="video/mp4">
+    
+</video>
+
+
+
+
+<h1 class="ht">hello</h1>
+
+{% endblock content %}
