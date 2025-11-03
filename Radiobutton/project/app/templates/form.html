@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{% url 'fromdata'%}" enctype="multipart/form-data" method="post">
+    {% csrf_token%}
+    <label for="name">Name</label>
+    <input id="name" name="name" type="text" required ><br><br>
+
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" required ><br><br>
+
+    <label for="contact">Contact</label>
+    <input id="contact" name="contact" type="tel" ><br><br>
+
+    <label for="desc">Description</label>
+    <textarea id="desc" name="description" rows="3"></textarea><br><br>
+
+    <label for="image">Image</label>
+    <input id="image" name="image" type="file" accept="image/*"><br><br>
+
+    <label for="audio">Audio</label>
+    <input id="audio" name="audio" type="file" accept="audio/*"><br><br>
+
+    <label for="video">Video</label>
+    <input id="video" name="video" type="file" accept="video/*"><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+    
+</body>
+</html>
