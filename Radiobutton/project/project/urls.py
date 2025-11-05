@@ -22,10 +22,19 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('select2/',views.select2,name='select2'),
 
-    path ('base/', views.base,name='base'),
+    path ('radio/', views.radio,name='radio'),
 
     path ('', views.form,name='form'),
     path('fromdata/',views.fromdata,name='fromdata'),
+
+    path('select/',views.select,name='select'),
+    path('select1/',views.select1,name='select1'),
+
+    path('checkbox/',views.checkbox,name='checkbox'),
+    path('select3/',views.select3,name='select3')
+
+    
+
 
 ]
 

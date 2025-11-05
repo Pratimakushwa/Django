@@ -3,8 +3,8 @@ from django.shortcuts import render
 # Create your views here.
 
 
-def  base(request):
-    return render(request,'base.html')
+def  radio(request):
+    return render(request,'radio.html')
 
 def select2(request):
     print("hello")
@@ -19,7 +19,6 @@ def select2(request):
 
 def form(request):
         return render(request,'form.html')
-
 
 def fromdata(req):
     print('hello')
@@ -44,3 +43,17 @@ def fromdata(req):
 
     i=req.FILE.get('image')
     print(i)
+
+def select(request):
+     return render(request,'select.html')
+
+def select1(req):
+     print('hello')
+     
+
+
+def checkbox(request):
+     return render(request,'checkbox.html')
+
+def select3(request):
+     print('hello')
