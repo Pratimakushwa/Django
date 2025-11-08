@@ -31,7 +31,9 @@ urlpatterns = [
     path('select1/',views.select1,name='select1'),
 
     path('checkbox/',views.checkbox,name='checkbox'),
-    path('select3/',views.select3,name='select3')
+    path('select3/',views.select3,name='select3'),
+    path('all_emp/',views.all_emp,name='all_emp'),
+    path('all_data/',views.all_data,name='all_data'),
 
     
 

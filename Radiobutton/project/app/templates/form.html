@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="{% url 'fromdata'%}" enctype="multipart/form-data" method="post">
+    <form action="{% url 'fromdata' %}" enctype="multipart/form-data" method="post">
     {% csrf_token%}
     <label for="name">Name</label>
     <input id="name" name="name" type="text" required ><br><br>
@@ -15,7 +15,7 @@
     <input id="email" name="email" type="email" required ><br><br>
 
     <label for="contact">Contact</label>
-    <input id="contact" name="contact" type="tel" ><br><br>
+    <input id="contact" name="contact" type="number" ><br><br>
 
     <label for="desc">Description</label>
     <textarea id="desc" name="description" rows="3"></textarea><br><br>
