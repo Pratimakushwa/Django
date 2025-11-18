@@ -94,7 +94,7 @@
 <body>
 
   <h2>Registration Form</h2>
-{{x}}
+
   <form action="{% url 'registerdata' %}" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     
@@ -160,14 +160,6 @@
 
     <label for="video">Upload Video:</label><br>
     <input type="file" id="video" name="video" accept="video/*"><br><br>
-     <h1> {{psmg}}</h1>
-    <label for="Password">Password</label><br>
-    <input type="Password" id="Password" name="Password"><br><br>
-
-    <label for="Confirmpassword">Confirmpassword</label><br>
-    <input type="Confirmpassword" id="Confirmpassword" name="Confirmpassword"><br><br>
-  
-
 
     
     <button type="submit">Submit</button>

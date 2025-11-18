@@ -32,11 +32,11 @@
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
-          <a class="nav-link active" aria-current="page" href="{% url 'form' %}">form</a>
+          {% comment %} <a class="nav-link active" aria-current="page" href="{% url 'form' %}">form</a> {% endcomment %}
         </li>
       
       </ul>
-      <form class="d-flex">
+      <form class="d-flex"> 
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>

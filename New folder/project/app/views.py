@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Registration
+from django.urls import reverse
+from urllib.parse import urlencode
 
 def register(req):
     return render(req ,'register.html') 
@@ -29,15 +31,21 @@ def logindata(req):
           confirmpassword=userdata.confirmpassword
           print(name,email,contact, details, education,profile_pic,video,audio,qualification,password,confirmpassword,gender)
           if password==lp:
-              data={'name":name'}
-              return  render (req, "dashboard.html",data)
+            data={'name':name,'email':email,'contact':contact,'details':details,'gender':gender,'qualification':qualification,'education':education,'profile_pic':profile_pic,'audio':audio,'video':video,'password':password}
+            base_url=reverse('dashboard')
+            data=urlencode({'name':name,'email':email,'contact':contact,'details':details,'gender':gender,'qualification':qualification,'education':education,'profile_pic':profile_pic,'audio':audio,'video':video,'password':password})
+            url=f'{base_url}?{data}'
+            return redirect(url )
           else:
-              msg="email & password  not matched"
-              return render(req,'login.html',{'msg':msg,'email':le})
+            msg="Incorrect Password"
+            return render(req,'login.html',{'msg':msg,'email':le})
+              
+            #   return  render (req, "dashboard.html",data)
+       
               
     else:
-        msg="email id not register"
-        return render(req ,'form.html',{'msg': msg})
+            msg="email id not register"
+            return render(req ,'form.html',{'msg': msg})
 
 
 
@@ -137,3 +145,36 @@ def registerdata(request):
     # return render(request, 'register.html')
 
 
+def dashboard(req):
+    print(req.GET)
+    name=req.GET.get('name')
+    contact=req.GET.get('contact')
+    details=req.GET.get('details')
+    gender=req.GET.get('gender')
+    qualification=req.GET.get('qualification')
+    education=req.GET.get('education')  
+    profile_pic=req.GET.get('profile_pic')
+    audio=req.GET.get('audio')
+    video=req.GET.get('video')
+    document=req.GET.get('document')
+    password=req.GET.get('password')
+    email=req.GET.get('email')
+    
+    print(email,password)
+    if email and password:
+      name=name
+      email=email
+      contact=contact
+      details=details
+      gender=gender
+      qualification=qualification
+      education=education
+      profile_pic=profile_pic
+      audio=audio
+      video=video
+      document=document
+      password=password
+      data={'name':name,'email':email,'contact':contact,'details':details,'gender':gender,'qualification':qualification,'education':education,'profile_pic':profile_pic,'audio':audio,'video':video,'document':document,'password':password}
+      return render (req,'dashboard.html',data)
+    else:
+      return render (req,'login.html')
