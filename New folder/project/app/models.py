@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 from django.db import models
-
+from django.core.exceptions import ValidationError
 
 class Registration(models.Model):
     name = models.CharField(max_length=50)
@@ -23,7 +23,17 @@ class Registration(models.Model):
     video = models.FileField(upload_to="video_files/", null=True, blank=True)
     password=models.CharField(max_length=50,null=True)
     confirmpassword = models.CharField(max_length=50,null=True)   
+    age=models.IntegerField(default=18)
 
     def __str__(self):
         return self.name
+    
+    def clean(self):
+       if not self.name.replace(" ", "").isalpha():
+        raise ValidationError("Name should contain only alphabets.")
+
+    def save(self, *args, **kwargs):
+        self.full_clean()
+        super().save(*args,**kwargs)
+     
 
